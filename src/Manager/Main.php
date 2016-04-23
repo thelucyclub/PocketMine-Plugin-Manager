@@ -11,10 +11,10 @@ namespace Manager;
 use pocketmine\plugin\PluginBase;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\utils\TextFormat as Color;
+use pocketmine\utils\TextFormat as C;
 class PluginManager extends PluginBase {
 	public function onEnable() {
-	 $this->getLogger->notice(TF::GREEN."Enabled");
+	 $this->getLogger->notice(C::GREEN."Enabled");
 		//$this->api->console->register("load", "<plugin name>", array($this, "commandHandler"),15);
 	}
 	public function onCommand(CommandSender $sender, Command $Command, $lists, array $args) {
@@ -27,9 +27,9 @@ class PluginManager extends PluginBase {
 					//$this->api->plugin->load(DATA_PATH."plugins/".$plugin.".php");
 					//$info = $this->getPHPPluginInfo(DATA_PATH."plugins/$plugin.php");
 					//$id = $this->api->plugin->getIdentifier($info["name"], $info["author"]);
-					$sender->sendMessage(TF::GREEN."Plugin Enabled!")
+					$sender->sendMessage(C::GREEN."Plugin enabled")
 				}else{
-					$sender->sendMessage(TF::RED."Plugin Doesn't exist!");
+					$sender->sendMessage(C::RED."Plugin does not exist");
 				}
 				//$p = $this->api->plugin->get($id);
 				//$p[0]->init();
@@ -38,6 +38,6 @@ class PluginManager extends PluginBase {
 	 }
 	}
 	public function onDisable() {
-	 $this->getLogger()->notice(TF::GREEN."Disabled!");
+	 $this->getLogger()->notice(C::GREEN."Disabled!");
 	}
 }
